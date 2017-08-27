@@ -1,12 +1,135 @@
 <div class="main-content">
     <div class="container-fluid">
+
         <div class="row">
             <div class="col-md-12">
-                <div id="map"></div>
+                <div class="card">
+                    <div class="card-header" data-background-color="red">
+                        <h4 class="title">เพิ่มร้านค้า</h4>
+                        <p class="category">Complete your organization</p>
+                    </div>
+                    <div class="card-content">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <agm-map [latitude]="lat" [longitude]="lng" [zoom]="15" [mapTypeControl]="false" (mapClick)="placeMarker($event)">
+                                    <agm-marker [latitude]="lat" [longitude]="lng" [markerDraggable]="true" [title]="'คุณอยู่ที่นี่'" (dragEnd)="placeMarker($event)"></agm-marker>
+
+                                </agm-map>
+
+                            </div>
+                        </div>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="form-group form-black is-empty">
+                                        <label for="lat" class="control-label">ละติจูด</label>
+                                        <input type="text" name="lat" id="lat" class="form-control" [(ngModel)]="lat">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="form-group form-black  is-empty">
+                                        <label for="lng" class="control-label">ลองจิจูด</label>
+                                        <input type="text" name="lng" id="lng" class="form-control" [(ngModel)]="lng">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group form-black  is-empty">
+                                        <label for="FULL_NAME" class="control-label">ชื่อเต็ม <b class="text-danger">*</b></label>
+                                        <input type="text" name="FULL_NAME" id="FULL_NAME" class="form-control" form="form_id">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group form-black  is-empty">
+                                        <label for="SHORT_NAME" class="control-label">ชื่อย่อ</label>
+                                        <input type="text" name="SHORT_NAME" id="SHORT_NAME" class="form-control" form="form_id">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group form-black  is-empty">
+                                        <label for="ADDRESS" class="control-label">ที่อยู่</label>
+                                        <textarea type="text" name="ADDRESS" id="ADDRESS" class="form-control" form="form_id"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 col-sm-4">
+                                    <div class="form-group form-black  is-empty">
+                                        <label class="control-label">จังหวัด : <b class="text-danger">*</b></label>
+                                        <select id="selProvince" class="form-control" name="selProvince" form="form_id">
+                    <option value=""> ------- เลือก ------ </option>
+                     
+                    </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                    <div class="form-group form-black  is-empty">
+                                        <label for="selAmphur" class="control-label">อำเภอ : <b class="text-danger">*</b></label>
+                                        <select id="selAmphur" class="form-control" name="selAmphur" form="form_id">
+                    <option value=""> ------- เลือก ------ </option>
+                    </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                    <div class="form-group form-black  is-empty">
+                                        <span id="waitAmphur"></span>
+                                        <label for="selTumbon" class="control-label">ตำบล : <b class="text-danger">*</b></label>
+                                        <select id="selTumbon" class="form-control" name="selTumbon" form="form_id">
+                    <option value=""> ------- เลือก ------ </option>
+                    </select>
+                                        <span id="waitTumbon"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group form-black  is-empty">
+                                        <label for="ZIPCODE" class="control-label">รหัสไปรษณีย์</label>
+                                        <input type="text" name="ZIPCODE" id="ZIPCODE" class="form-control" form="form_id">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group form-black  is-empty">
+                                        <label for="TEL" class="control-label">เบอร์โทรศัพท์ </label>
+                                        <input type="text" name="TEL" id="TEL" class="form-control" form="form_id">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group form-black  is-empty">
+                                        <label for="ID_TAXCARD" class="control-label">เลขประจำตัวผู้เสียภาษี</label>
+                                        <input type="text" name="ID_TAXCARD" id="ID_TAXCARD" class="form-control" form="form_id">
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <h4>ความสามารถ Admin ของร้าน</h4>
+                            <ul>
+                                <li>สามารถเพิ่ม User ให้กับร้านค้าของตนเองต่อได้</li>
+                            </ul>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group form-black  is-empty">
+                                        <label for="txtUSERNAME" class="control-label">Username <b class="text-danger">*</b></label>
+                                        <input type="text" name="txtUSERNAME" id="txtUSERNAME" class="form-control" form="form_id">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group form-black  is-empty">
+                                        <label for="txtPASSWORD" class="control-label">Password <b class="text-danger">*</b></label>
+                                        <input type="password" name="txtPASSWORD" id="txtPASSWORD" class="form-control" form="form_id">
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                        </form>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6"></div>
         </div>
     </div>
 </div>

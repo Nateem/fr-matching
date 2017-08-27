@@ -27,9 +27,10 @@ export class SidebarComponent implements OnInit {
     this.menuItems = ROUTES;
   }
   isMobileMenu() {
+      /*
       if ($(window).width() > 991) {
           return false;
       }
-      return true;
+      return true;*/
   };
 }
