@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import {Routes_menu} from '../../app.routing';
+import {Params} from '../../app.params';
 
-declare const $: any;
+
+declare const $:any;
+
 declare interface RouteInfo {
     path?: string;
     data?:{
@@ -16,6 +19,7 @@ export const ROUTES:RouteInfo[] = Routes_menu;
 })
 export class SidebarComponent implements OnInit {
   menuItems: RouteInfo[];
+  _param=Params;
 
   constructor() { }
 

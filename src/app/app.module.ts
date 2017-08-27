@@ -17,6 +17,7 @@ import { IconsComponent } from './icons/icons.component';
 import { MapsComponent } from './maps/maps.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { UpgradeComponent } from './upgrade/upgrade.component';
+import { OrganizationAddComponent } from './organization-add/organization-add.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { UpgradeComponent } from './upgrade/upgrade.component';
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
+    OrganizationAddComponent,
 
   ],
   imports: [
@@ -36,7 +38,7 @@ import { UpgradeComponent } from './upgrade/upgrade.component';
     FormsModule,
     HttpModule,
     ComponentsModule,
-RouterModule,
+    RouterModule,
     AppRoutingModule
   ],
   providers: [],

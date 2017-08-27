@@ -12,6 +12,8 @@ import { MapsComponent } from './maps/maps.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { UpgradeComponent } from './upgrade/upgrade.component';
 
+import { OrganizationAddComponent } from './organization-add/organization-add.component';
+
 const routes_menu = [
   { 
     path: 'dashboard',
@@ -61,19 +63,27 @@ const routes_menu = [
       title: 'Notifications',  icon:'notifications', class: '',menu_hide:false
     },   
     component: NotificationsComponent 
-  },
+  },  
   { 
     path: 'upgrade',    
     data:{
       title: 'Upgrade to PRO',  icon:'unarchive', class: 'active-pro',menu_hide:false
     },       
     component: UpgradeComponent 
+  }
+  ,
+  { 
+    path: 'organization-add',    
+    data:{
+      title: 'OrganizationAdd',  icon:'contacts', class: '',menu_hide:false
+    },       
+    component: OrganizationAddComponent 
   },
+  
   { 
     path: '',          
     data:{
-      class: '',
-      menu_hide:true      
+      class: '', menu_hide:true      
     },
     redirectTo: 'dashboard', 
     pathMatch: 'full' 
