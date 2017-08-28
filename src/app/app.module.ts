@@ -7,7 +7,9 @@ import { RouterModule } from '@angular/router';
 import { AgmCoreModule } from '@agm/core';
 
 import { AppRoutingModule } from './app.routing';
+import { AuthGuard } from './auth.guard';
 import { ComponentsModule } from './components/components.module';
+
 import {JasperoAlertsModule } from "@jaspero/ng2-alerts";
 
 import { AppComponent } from './app.component';
@@ -23,6 +25,8 @@ import { UpgradeComponent } from './upgrade/upgrade.component';
 import { OrganizationAddComponent } from './organization-add/organization-add.component';
 
 import { JsonActionService } from './json-action.service';
+import { AuthenticationService } from './authentication.service';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +40,7 @@ import { JsonActionService } from './json-action.service';
     NotificationsComponent,
     UpgradeComponent,
     OrganizationAddComponent,
+    LoginComponent,
 
   ],
   imports: [
@@ -51,7 +56,7 @@ import { JsonActionService } from './json-action.service';
       apiKey: 'AIzaSyAzG6LZwfU5Fu-5e4Bt8xVJBuUGYkdTUnM'
     })
   ],
-  providers: [JsonActionService],
+  providers: [JsonActionService,AuthenticationService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

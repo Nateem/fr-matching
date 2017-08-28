@@ -24,26 +24,25 @@
                                 <div class="col-md-6 col-sm-6">
                                     <div class="form-group form-black is-empty">
                                         <label for="lat" class="control-label">ละติจูด</label>
-                                        <input type="text" name="lat" id="lat" class="form-control" [(ngModel)]="form.lat">
+                                        <input type="text" name="lat" id="lat" class="form-control" [(ngModel)]="form.lat" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
                                     <div class="form-group form-black  is-empty">
                                         <label for="lng" class="control-label">ลองจิจูด</label>
-                                        <input type="text" name="lng" id="lng" class="form-control" [(ngModel)]="form.lng">
+                                        <input type="text" name="lng" id="lng" class="form-control" [(ngModel)]="form.lng" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-6 col-sm-12">
                                     <div class="form-group form-black  is-empty">
                                         <label class="control-label">ชื่อเต็ม <b class="text-danger">*</b></label>
-                                        <input type="text" name="FULL_NAME" class="form-control" [(ngModel)]="form.FULL_NAME">
+                                        <input type="text" name="FULL_NAME" class="form-control" [(ngModel)]="form.FULL_NAME" required>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
+
+                                <div class="col-md-6 col-sm-12">
                                     <div class="form-group form-black  is-empty">
                                         <label class="control-label">ชื่อย่อ</label>
                                         <input type="text" name="SHORT_NAME" class="form-control" [(ngModel)]="form.SHORT_NAME">
@@ -62,7 +61,7 @@
                                 <div class="col-md-4 col-sm-4">
                                     <div class="form-group form-black  is-empty">
                                         <label class="control-label">จังหวัด : <b class="text-danger">*</b></label>
-                                        <select class="form-control" [(ngModel)]="form.province_ID" name="province" (change)="getAmphur(form.province_ID)">
+                                        <select class="form-control" [(ngModel)]="form.province_ID" name="province" (change)="getAmphur(form.province_ID)" required>
                     <option value="" selected> ------- เลือก ------ </option>
                     <option value="{{p.PROVINCE_ID}}" *ngFor="let p of proviceRepeat">{{p.PROVINCE_NAME}}</option>
                      
@@ -72,7 +71,7 @@
                                 <div class="col-md-4 col-sm-4">
                                     <div class="form-group form-black  is-empty">
                                         <label class="control-label">อำเภอ : <b class="text-danger">*</b></label>
-                                        <select class="form-control" [(ngModel)]="form.amphur_ID" name="amphur" (change)="getDistrict(form.amphur_ID)">
+                                        <select class="form-control" [(ngModel)]="form.amphur_ID" name="amphur" (change)="getDistrict(form.amphur_ID)" required>
                     <option value="" selected> ------- เลือก ------ </option>
                     <option value="{{a.AMPHUR_ID}}" *ngFor="let a of amphurRepeat">{{a.AMPHUR_NAME}}</option>
                     </select>
@@ -81,7 +80,7 @@
                                 <div class="col-md-4 col-sm-4">
                                     <div class="form-group form-black  is-empty">
                                         <label class="control-label">ตำบล : <b class="text-danger">*</b></label>
-                                        <select class="form-control" [(ngModel)]="form.district_ID" name="district">
+                                        <select class="form-control" [(ngModel)]="form.district_ID" name="district" required>
                     <option value="" selected> ------- เลือก ------ </option>
                     <option value="{{d.DISTRICT_ID}}" *ngFor="let d of districtRepeat">{{d.DISTRICT_NAME}}</option>
                     </select>
@@ -108,22 +107,25 @@
                                     </div>
                                 </div>
                             </div>
-                            <hr>
-                            <h4>ความสามารถ Admin ของร้าน</h4>
-                            <ul>
-                                <li>สามารถเพิ่ม User ให้กับร้านค้าของตนเองต่อได้</li>
-                            </ul>
+                            <blockquote>
+                                <p>
+                                    ความสามารถ Admin ของร้าน
+                                </p>
+                                <small>
+                                            สามารถเพิ่ม User ให้กับร้านค้าของตนเองต่อได้
+                                    </small>
+                            </blockquote>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group form-black  is-empty">
                                         <label class="control-label">Username <b class="text-danger">*</b></label>
-                                        <input type="text" name="txtUSERNAME" class="form-control" [(ngModel)]="form.txtUSERNAME">
+                                        <input type="text" name="txtUSERNAME" class="form-control" [(ngModel)]="form.txtUSERNAME" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group form-black  is-empty">
                                         <label class="control-label">Password <b class="text-danger">*</b></label>
-                                        <input type="password" name="txtPASSWORD" class="form-control" [(ngModel)]="form.txtPASSWORD">
+                                        <input type="password" name="txtPASSWORD" class="form-control" [(ngModel)]="form.txtPASSWORD" required>
                                     </div>
                                 </div>
                             </div>

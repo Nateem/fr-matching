@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
+import { LoginComponent } from './login/login.component';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
@@ -13,71 +14,89 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { UpgradeComponent } from './upgrade/upgrade.component';
 
 import { OrganizationAddComponent } from './organization-add/organization-add.component';
-
+import { AuthGuard } from './auth.guard';
 const routes_menu = [
   { 
     path: 'dashboard',
     data:{
       title: 'Dashboard', icon: 'dashboard', class: '',menu_hide:false
     },     
-    component: DashboardComponent 
+    component: DashboardComponent, 
+    canActivate: [AuthGuard] 
+    
   },
   { 
     path: 'user-profile',  
     data:{
       title: 'User Profile', icon:'person', class: '',menu_hide:false
     },   
-    component: UserProfileComponent 
+    component: UserProfileComponent, 
+    canActivate: [AuthGuard]  
   },
   { 
     path: 'table-list',    
     data:{
       title: 'Table List',  icon:'content_paste', class: '',menu_hide:false
     },    
-    component: TableListComponent 
+    component: TableListComponent, 
+    canActivate: [AuthGuard]  
   },
   { 
     path: 'typography', 
     data:{
       title: 'Typography',  icon:'library_books', class: '',menu_hide:false
     },       
-    component: TypographyComponent 
+    component: TypographyComponent , 
+    canActivate: [AuthGuard] 
   },
   { 
     path: 'icons',  
     data:{
       title: 'Icons',  icon:'bubble_chart', class: '',menu_hide:false
     },           
-    component: IconsComponent 
+    component: IconsComponent , 
+    canActivate: [AuthGuard] 
   },
   { 
     path: 'maps',      
     data:{
       title: 'Maps',  icon:'location_on', class: '',menu_hide:false
     },        
-    component: MapsComponent 
+    component: MapsComponent , 
+    canActivate: [AuthGuard] 
   },
   { 
     path: 'notifications',  
     data:{
       title: 'Notifications',  icon:'notifications', class: '',menu_hide:false
     },   
-    component: NotificationsComponent 
-  },  
+    component: NotificationsComponent, 
+    canActivate: [AuthGuard]  
+  }/*,  
   { 
     path: 'upgrade',    
     data:{
       title: 'Upgrade to PRO',  icon:'unarchive', class: 'active-pro',menu_hide:false
     },       
-    component: UpgradeComponent 
-  }
+    component: UpgradeComponent , 
+    canActivate: [AuthGuard] 
+  }*/
   ,
   { 
     path: 'organization-add',    
     data:{
       title: 'OrganizationAdd',  icon:'contacts', class: '',menu_hide:false
     },       
-    component: OrganizationAddComponent 
+    component: OrganizationAddComponent
+    /*, 
+    canActivate: [AuthGuard]  */
+  },
+  { 
+    path: 'login',    
+    data:{
+      title: 'Login',  icon:'contacts', class: '',menu_hide:true
+    },       
+    component: LoginComponent 
   },
   
   { 
