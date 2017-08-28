@@ -20,6 +20,8 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { UpgradeComponent } from './upgrade/upgrade.component';
 import { OrganizationAddComponent } from './organization-add/organization-add.component';
 
+import { JsonActionService } from './json-action.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +47,7 @@ import { OrganizationAddComponent } from './organization-add/organization-add.co
       apiKey: 'AIzaSyAzG6LZwfU5Fu-5e4Bt8xVJBuUGYkdTUnM'
     })
   ],
-  providers: [],
+  providers: [JsonActionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

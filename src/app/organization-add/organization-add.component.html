@@ -37,7 +37,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group form-black  is-empty">
                                         <label for="FULL_NAME" class="control-label">ชื่อเต็ม <b class="text-danger">*</b></label>
-                                        <input type="text" name="FULL_NAME" id="FULL_NAME" class="form-control" form="form_id">
+                                        <input type="text" name="FULL_NAME" id="FULL_NAME" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -45,7 +45,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group form-black  is-empty">
                                         <label for="SHORT_NAME" class="control-label">ชื่อย่อ</label>
-                                        <input type="text" name="SHORT_NAME" id="SHORT_NAME" class="form-control" form="form_id">
+                                        <input type="text" name="SHORT_NAME" id="SHORT_NAME" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -53,7 +53,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group form-black  is-empty">
                                         <label for="ADDRESS" class="control-label">ที่อยู่</label>
-                                        <textarea type="text" name="ADDRESS" id="ADDRESS" class="form-control" form="form_id"></textarea>
+                                        <textarea type="text" name="ADDRESS" id="ADDRESS" class="form-control"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -61,28 +61,29 @@
                                 <div class="col-md-4 col-sm-4">
                                     <div class="form-group form-black  is-empty">
                                         <label class="control-label">จังหวัด : <b class="text-danger">*</b></label>
-                                        <select id="selProvince" class="form-control" name="selProvince" form="form_id">
-                    <option value=""> ------- เลือก ------ </option>
+                                        <select class="form-control" [(ngModel)]="form.province_ID" name="province" (change)="getAmphur(form.province_ID)">
+                    <option value="" selected> ------- เลือก ------ </option>
+                    <option value="{{p.PROVINCE_ID}}" *ngFor="let p of proviceRepeat">{{p.PROVINCE_NAME}}</option>
                      
                     </select>
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-4">
                                     <div class="form-group form-black  is-empty">
-                                        <label for="selAmphur" class="control-label">อำเภอ : <b class="text-danger">*</b></label>
-                                        <select id="selAmphur" class="form-control" name="selAmphur" form="form_id">
-                    <option value=""> ------- เลือก ------ </option>
+                                        <label class="control-label">อำเภอ : <b class="text-danger">*</b></label>
+                                        <select class="form-control" [(ngModel)]="form.amphur_ID" name="amphur" (change)="getDistrict(form.amphur_ID)">
+                    <option value="" selected> ------- เลือก ------ </option>
+                    <option value="{{a.AMPHUR_ID}}" *ngFor="let a of amphurRepeat">{{a.AMPHUR_NAME}}</option>
                     </select>
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-4">
                                     <div class="form-group form-black  is-empty">
-                                        <span id="waitAmphur"></span>
-                                        <label for="selTumbon" class="control-label">ตำบล : <b class="text-danger">*</b></label>
-                                        <select id="selTumbon" class="form-control" name="selTumbon" form="form_id">
-                    <option value=""> ------- เลือก ------ </option>
+                                        <label class="control-label">ตำบล : <b class="text-danger">*</b></label>
+                                        <select class="form-control" [(ngModel)]="form.district_ID" name="district">
+                    <option value="" selected> ------- เลือก ------ </option>
+                    <option value="{{d.DISTRICT_ID}}" *ngFor="let d of districtRepeat">{{d.DISTRICT_NAME}}</option>
                     </select>
-                                        <span id="waitTumbon"></span>
                                     </div>
                                 </div>
                             </div>
@@ -90,19 +91,19 @@
                                 <div class="col-md-4">
                                     <div class="form-group form-black  is-empty">
                                         <label for="ZIPCODE" class="control-label">รหัสไปรษณีย์</label>
-                                        <input type="text" name="ZIPCODE" id="ZIPCODE" class="form-control" form="form_id">
+                                        <input type="text" name="ZIPCODE" id="ZIPCODE" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group form-black  is-empty">
                                         <label for="TEL" class="control-label">เบอร์โทรศัพท์ </label>
-                                        <input type="text" name="TEL" id="TEL" class="form-control" form="form_id">
+                                        <input type="text" name="TEL" id="TEL" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group form-black  is-empty">
                                         <label for="ID_TAXCARD" class="control-label">เลขประจำตัวผู้เสียภาษี</label>
-                                        <input type="text" name="ID_TAXCARD" id="ID_TAXCARD" class="form-control" form="form_id">
+                                        <input type="text" name="ID_TAXCARD" id="ID_TAXCARD" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -115,13 +116,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group form-black  is-empty">
                                         <label for="txtUSERNAME" class="control-label">Username <b class="text-danger">*</b></label>
-                                        <input type="text" name="txtUSERNAME" id="txtUSERNAME" class="form-control" form="form_id">
+                                        <input type="text" name="txtUSERNAME" id="txtUSERNAME" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group form-black  is-empty">
                                         <label for="txtPASSWORD" class="control-label">Password <b class="text-danger">*</b></label>
-                                        <input type="password" name="txtPASSWORD" id="txtPASSWORD" class="form-control" form="form_id">
+                                        <input type="password" name="txtPASSWORD" id="txtPASSWORD" class="form-control">
                                     </div>
                                 </div>
                             </div>
