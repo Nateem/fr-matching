@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AgmMap,AgmMarker } from '@agm/core';
+import {AlertsService ,AlertType,AlertSettings} from "@jaspero/ng2-alerts";
 import { JsonActionService } from '../json-action.service';
+import { Http } from '@angular/http';
+import "rxjs/add/operator/map";
+
 @Component({
   selector: 'app-organization-add',
   templateUrl: './organization-add.component.html',
@@ -8,25 +12,49 @@ import { JsonActionService } from '../json-action.service';
 })
 
 export class OrganizationAddComponent implements OnInit {
-    title: string = 'My first AGM project';
-    lat: number = 13.755716;
-    lng: number = 100.501589;
+    options:AlertSettings = {
+      overlay: true,
+      overlayClickToClose: true,
+      showCloseButton: true,
+      duration: 30000,
+    }
     
     proviceRepeat:any;
     amphurRepeat:any;
     districtRepeat:any;
     form?:any = {
+      lat: 13.755716,
+      lng: 100.501589,
       province_ID: "",
       amphur_ID: "",
       district_ID: "",
     }
+    result:any;
     
 
  
       
-  constructor(private _jsonAT:JsonActionService) { }
-
-  
+  constructor(private _jsonAT:JsonActionService,private _http:Http,public _alert:AlertsService) { }
+  openAlert(type: AlertType,MSG:string) {
+    this._alert.create(type, MSG,this.options);
+  }
+  OrganizationAdd(FORM_DATA:any){
+    this._http.post('http://localhost/farmruk/matching/api/organization_add.model.php',{FORM_DATA:FORM_DATA}).map(res=>res.json()).subscribe((data)=>{
+      this.result = data;
+      if(data.ERROR == false){
+        this.form = {};
+        this.form = {
+          lat: 13.755716,
+          lng: 100.501589,
+          province_ID: "",
+          amphur_ID: "",
+          district_ID: "",
+        }
+      }
+      this.openAlert(data.TYPE,data.MSG);
+      //console.log(data);
+    });    
+  }
   getProvince(){
    this._jsonAT.getProvince().subscribe(
       (data)=>{
@@ -53,11 +81,12 @@ export class OrganizationAddComponent implements OnInit {
     )
   }
   placeMarker($event){
-      this.lat = $event.coords.lat;
-      this.lng = $event.coords.lng;
+      this.form.lat = $event.coords.lat;
+      this.form.lng = $event.coords.lng;
   }
   ngOnInit() {
-    this.getProvince()
+    this.getProvince();
+  
   }
 
 }

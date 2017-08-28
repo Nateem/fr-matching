@@ -9,51 +9,52 @@
                         <p class="category">Complete your organization</p>
                     </div>
                     <div class="card-content">
+
                         <div class="row">
                             <div class="col-md-12">
-                                <agm-map [latitude]="lat" [longitude]="lng" [zoom]="15" [mapTypeControl]="false" (mapClick)="placeMarker($event)">
-                                    <agm-marker [latitude]="lat" [longitude]="lng" [markerDraggable]="true" [title]="'คุณอยู่ที่นี่'" (dragEnd)="placeMarker($event)"></agm-marker>
+                                <agm-map [latitude]="form.lat" [longitude]="form.lng" [zoom]="15" [mapTypeControl]="false" (mapClick)="placeMarker($event)">
+                                    <agm-marker [latitude]="form.lat" [longitude]="form.lng" [markerDraggable]="true" [title]="'คุณอยู่ที่นี่'" (dragEnd)="placeMarker($event)"></agm-marker>
 
                                 </agm-map>
 
                             </div>
                         </div>
-                        <form>
+                        <form #formName (submit)="OrganizationAdd(form)">
                             <div class="row">
                                 <div class="col-md-6 col-sm-6">
                                     <div class="form-group form-black is-empty">
                                         <label for="lat" class="control-label">ละติจูด</label>
-                                        <input type="text" name="lat" id="lat" class="form-control" [(ngModel)]="lat">
+                                        <input type="text" name="lat" id="lat" class="form-control" [(ngModel)]="form.lat">
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
                                     <div class="form-group form-black  is-empty">
                                         <label for="lng" class="control-label">ลองจิจูด</label>
-                                        <input type="text" name="lng" id="lng" class="form-control" [(ngModel)]="lng">
+                                        <input type="text" name="lng" id="lng" class="form-control" [(ngModel)]="form.lng">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group form-black  is-empty">
-                                        <label for="FULL_NAME" class="control-label">ชื่อเต็ม <b class="text-danger">*</b></label>
-                                        <input type="text" name="FULL_NAME" id="FULL_NAME" class="form-control">
+                                        <label class="control-label">ชื่อเต็ม <b class="text-danger">*</b></label>
+                                        <input type="text" name="FULL_NAME" class="form-control" [(ngModel)]="form.FULL_NAME">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group form-black  is-empty">
-                                        <label for="SHORT_NAME" class="control-label">ชื่อย่อ</label>
-                                        <input type="text" name="SHORT_NAME" id="SHORT_NAME" class="form-control">
+                                        <label class="control-label">ชื่อย่อ</label>
+                                        <input type="text" name="SHORT_NAME" class="form-control" [(ngModel)]="form.SHORT_NAME">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group form-black  is-empty">
-                                        <label for="ADDRESS" class="control-label">ที่อยู่</label>
-                                        <textarea type="text" name="ADDRESS" id="ADDRESS" class="form-control"></textarea>
+                                        <label class="control-label">ที่อยู่</label>
+                                        <textarea type="text" name="ADDRESS" class="form-control" [(ngModel)]="form.ADDRESS"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -90,20 +91,20 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group form-black  is-empty">
-                                        <label for="ZIPCODE" class="control-label">รหัสไปรษณีย์</label>
-                                        <input type="text" name="ZIPCODE" id="ZIPCODE" class="form-control">
+                                        <label class="control-label">รหัสไปรษณีย์</label>
+                                        <input type="text" name="ZIPCODE" class="form-control" [(ngModel)]="form.ZIPCODE">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group form-black  is-empty">
-                                        <label for="TEL" class="control-label">เบอร์โทรศัพท์ </label>
-                                        <input type="text" name="TEL" id="TEL" class="form-control">
+                                        <label class="control-label">เบอร์โทรศัพท์ </label>
+                                        <input type="text" name="TEL" class="form-control" [(ngModel)]="form.TEL">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group form-black  is-empty">
-                                        <label for="ID_TAXCARD" class="control-label">เลขประจำตัวผู้เสียภาษี</label>
-                                        <input type="text" name="ID_TAXCARD" id="ID_TAXCARD" class="form-control">
+                                        <label class="control-label">เลขประจำตัวผู้เสียภาษี</label>
+                                        <input type="text" name="ID_TAXCARD" class="form-control" [(ngModel)]="form.ID_TAXCARD">
                                     </div>
                                 </div>
                             </div>
@@ -115,19 +116,22 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group form-black  is-empty">
-                                        <label for="txtUSERNAME" class="control-label">Username <b class="text-danger">*</b></label>
-                                        <input type="text" name="txtUSERNAME" id="txtUSERNAME" class="form-control">
+                                        <label class="control-label">Username <b class="text-danger">*</b></label>
+                                        <input type="text" name="txtUSERNAME" class="form-control" [(ngModel)]="form.txtUSERNAME">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group form-black  is-empty">
-                                        <label for="txtPASSWORD" class="control-label">Password <b class="text-danger">*</b></label>
-                                        <input type="password" name="txtPASSWORD" id="txtPASSWORD" class="form-control">
+                                        <label class="control-label">Password <b class="text-danger">*</b></label>
+                                        <input type="password" name="txtPASSWORD" class="form-control" [(ngModel)]="form.txtPASSWORD">
                                     </div>
                                 </div>
                             </div>
-                            <hr>
+
+                            <button type="submit" class="btn btn-danger pull-right">Submit</button>
+                            <div class="clearfix"></div>
                         </form>
+
                     </div>
                 </div>
             </div>

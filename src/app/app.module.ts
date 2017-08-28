@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -7,6 +8,7 @@ import { AgmCoreModule } from '@agm/core';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
+import {JasperoAlertsModule } from "@jaspero/ng2-alerts";
 
 import { AppComponent } from './app.component';
 
@@ -43,6 +45,8 @@ import { JsonActionService } from './json-action.service';
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
+    JasperoAlertsModule,
+    BrowserAnimationsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAzG6LZwfU5Fu-5e4Bt8xVJBuUGYkdTUnM'
     })
