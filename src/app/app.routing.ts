@@ -4,6 +4,7 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 
+import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { TableListComponent } from './table-list/table-list.component';
@@ -22,6 +23,15 @@ const routes_menu = [
       title: 'Dashboard', icon: 'dashboard', class: '',menu_hide:true
     },     
     component: DashboardComponent, 
+    canActivate: [AuthGuard] 
+    
+  },
+  { 
+    path: 'home',
+    data:{
+      title: 'Home', icon: 'home', class: '',menu_hide:false
+    },     
+    component: HomeComponent, 
     canActivate: [AuthGuard] 
     
   },
@@ -103,7 +113,7 @@ const routes_menu = [
     data:{
       class: '', menu_hide:true      
     },
-    redirectTo: 'organization-add', 
+    redirectTo: 'home', 
     pathMatch: 'full' 
   }
 ];

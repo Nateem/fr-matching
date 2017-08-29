@@ -27,6 +27,7 @@ import { OrganizationAddComponent } from './organization-add/organization-add.co
 import { JsonActionService } from './json-action.service';
 import { AuthenticationService } from './authentication.service';
 import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { LoginComponent } from './login/login.component';
     UpgradeComponent,
     OrganizationAddComponent,
     LoginComponent,
+    HomeComponent,
 
   ],
   imports: [
