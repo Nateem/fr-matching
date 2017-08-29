@@ -22,13 +22,13 @@
                         <form #formName (submit)="OrganizationAdd(form)">
                             <div class="row">
                                 <div class="col-md-6 col-sm-6">
-                                    <div class="form-group form-black is-empty">
+                                    <div class="form-group label-floating is-empty" [ngClass]="{'is-focused':form.lat}">
                                         <label for="lat" class="control-label">ละติจูด</label>
                                         <input type="text" name="lat" id="lat" class="form-control" [(ngModel)]="form.lat" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
-                                    <div class="form-group form-black  is-empty">
+                                    <div class="form-group label-floating is-empty" [ngClass]="{'is-focused':form.lng}">
                                         <label for="lng" class="control-label">ลองจิจูด</label>
                                         <input type="text" name="lng" id="lng" class="form-control" [(ngModel)]="form.lng" required>
                                     </div>
@@ -36,14 +36,14 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6 col-sm-12">
-                                    <div class="form-group form-black  is-empty">
+                                    <div class="form-group label-floating   is-empty" [ngClass]="{'is-focused':form.FULL_NAME}">
                                         <label class="control-label">ชื่อเต็ม <b class="text-danger">*</b></label>
                                         <input type="text" name="FULL_NAME" class="form-control" [(ngModel)]="form.FULL_NAME" required>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6 col-sm-12">
-                                    <div class="form-group form-black  is-empty">
+                                    <div class="form-group label-floating  is-empty" [ngClass]="{'is-focused':form.SHORT_NAME}">
                                         <label class="control-label">ชื่อย่อ</label>
                                         <input type="text" name="SHORT_NAME" class="form-control" [(ngModel)]="form.SHORT_NAME">
                                     </div>
@@ -51,7 +51,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="form-group form-black  is-empty">
+                                    <div class="form-group label-floating is-empty" [ngClass]="{'is-focused':form.ADDRESS}">
                                         <label class="control-label">ที่อยู่</label>
                                         <textarea type="text" name="ADDRESS" class="form-control" [(ngModel)]="form.ADDRESS"></textarea>
                                     </div>
@@ -59,7 +59,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-4 col-sm-4">
-                                    <div class="form-group form-black  is-empty">
+                                    <div class="form-group  is-empty" [ngClass]="{'is-focused':form.province_ID}">
                                         <label class="control-label">จังหวัด : <b class="text-danger">*</b></label>
                                         <select class="form-control" [(ngModel)]="form.province_ID" name="province" (change)="getAmphur(form.province_ID)" required>
                     <option value="" selected> ------- เลือก ------ </option>
@@ -69,7 +69,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-4">
-                                    <div class="form-group form-black  is-empty">
+                                    <div class="form-group  is-empty" [ngClass]="{'is-focused':form.amphur_ID}">
                                         <label class="control-label">อำเภอ : <b class="text-danger">*</b></label>
                                         <select class="form-control" [(ngModel)]="form.amphur_ID" name="amphur" (change)="getDistrict(form.amphur_ID)" required>
                     <option value="" selected> ------- เลือก ------ </option>
@@ -78,7 +78,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-4">
-                                    <div class="form-group form-black  is-empty">
+                                    <div class="form-group  is-empty" [ngClass]="{'is-focused':form.district_ID}">
                                         <label class="control-label">ตำบล : <b class="text-danger">*</b></label>
                                         <select class="form-control" [(ngModel)]="form.district_ID" name="district" required>
                     <option value="" selected> ------- เลือก ------ </option>
@@ -89,19 +89,19 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-4">
-                                    <div class="form-group form-black  is-empty">
+                                    <div class="form-group label-floating is-empty" [ngClass]="{'is-focused':form.ZIPCODE}">
                                         <label class="control-label">รหัสไปรษณีย์</label>
                                         <input type="text" name="ZIPCODE" class="form-control" [(ngModel)]="form.ZIPCODE">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="form-group form-black  is-empty">
+                                    <div class="form-group label-floating is-empty" [ngClass]="{'is-focused':form.TEL}">
                                         <label class="control-label">เบอร์โทรศัพท์ </label>
                                         <input type="text" name="TEL" class="form-control" [(ngModel)]="form.TEL">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="form-group form-black  is-empty">
+                                    <div class="form-group label-floating is-empty" [ngClass]="{'is-focused':form.ID_TAXCARD}">
                                         <label class="control-label">เลขประจำตัวผู้เสียภาษี</label>
                                         <input type="text" name="ID_TAXCARD" class="form-control" [(ngModel)]="form.ID_TAXCARD">
                                     </div>
@@ -117,13 +117,13 @@
                             </blockquote>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="form-group form-black  is-empty">
+                                    <div class="form-group label-floating is-empty" [ngClass]="{'is-focused':form.txtUSERNAME}">
                                         <label class="control-label">Username <b class="text-danger">*</b></label>
                                         <input type="text" name="txtUSERNAME" class="form-control" [(ngModel)]="form.txtUSERNAME" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="form-group form-black  is-empty">
+                                    <div class="form-group label-floating is-empty" [ngClass]="{'is-focused':form.txtPASSWORD}">
                                         <label class="control-label">Password <b class="text-danger">*</b></label>
                                         <input type="password" name="txtPASSWORD" class="form-control" [(ngModel)]="form.txtPASSWORD" required>
                                     </div>

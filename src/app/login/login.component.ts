@@ -8,11 +8,12 @@ import {AuthenticationService} from '../authentication.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+    
   model: any = {};
   loading = false;
   error = '';
   constructor(private router: Router,private authenticationService: AuthenticationService) { }
-
+  
   ngOnInit() {
     // reset login status
     this.authenticationService.logout();
@@ -24,7 +25,9 @@ export class LoginComponent implements OnInit {
             if (result === true) {
                 this.router.navigate(['/']);
             } else {
+                
                 this.error = 'Username or password is incorrect';
+                
                 this.loading = false;
             }
         });

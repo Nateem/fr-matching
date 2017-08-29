@@ -1,17 +1,19 @@
 <div class="wrapper">
-    <div class="sidebar" data-color='red' data-image="">
+    <div class="sidebar" data-color='red' data-image="" *ngIf="isMaps('login')">
         <app-sidebar></app-sidebar>
         <div class="sidebar-background" style="background-image: url(../assets/img/sidebar-4.jpg)"></div>
     </div>
-    <div class="main-panel">
-
-        <app-navbar></app-navbar>
+    <div [ngClass]="{'main-panel':isMaps('login')}">
+        <div *ngIf="isMaps('login')">
+            <app-navbar></app-navbar>
+        </div>
         <router-outlet></router-outlet>
 
-        <div *ngIf="isMaps('maps')">
+        <div *ngIf="isMaps('login')">
             <app-footer></app-footer>
         </div>
 
     </div>
 </div>
 <jaspero-alerts [defaultSettings]="options"></jaspero-alerts>
+<script src="./assets/js/material.min.js"></script>

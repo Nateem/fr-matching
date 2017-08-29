@@ -19,7 +19,7 @@ const routes_menu = [
   { 
     path: 'dashboard',
     data:{
-      title: 'Dashboard', icon: 'dashboard', class: '',menu_hide:false
+      title: 'Dashboard', icon: 'dashboard', class: '',menu_hide:true
     },     
     component: DashboardComponent, 
     canActivate: [AuthGuard] 
@@ -28,7 +28,7 @@ const routes_menu = [
   { 
     path: 'user-profile',  
     data:{
-      title: 'User Profile', icon:'person', class: '',menu_hide:false
+      title: 'User Profile', icon:'person', class: '',menu_hide:true
     },   
     component: UserProfileComponent, 
     canActivate: [AuthGuard]  
@@ -36,7 +36,7 @@ const routes_menu = [
   { 
     path: 'table-list',    
     data:{
-      title: 'Table List',  icon:'content_paste', class: '',menu_hide:false
+      title: 'Table List',  icon:'content_paste', class: '',menu_hide:true
     },    
     component: TableListComponent, 
     canActivate: [AuthGuard]  
@@ -44,7 +44,7 @@ const routes_menu = [
   { 
     path: 'typography', 
     data:{
-      title: 'Typography',  icon:'library_books', class: '',menu_hide:false
+      title: 'Typography',  icon:'library_books', class: '',menu_hide:true
     },       
     component: TypographyComponent , 
     canActivate: [AuthGuard] 
@@ -52,7 +52,7 @@ const routes_menu = [
   { 
     path: 'icons',  
     data:{
-      title: 'Icons',  icon:'bubble_chart', class: '',menu_hide:false
+      title: 'Icons',  icon:'bubble_chart', class: '',menu_hide:true
     },           
     component: IconsComponent , 
     canActivate: [AuthGuard] 
@@ -60,7 +60,7 @@ const routes_menu = [
   { 
     path: 'maps',      
     data:{
-      title: 'Maps',  icon:'location_on', class: '',menu_hide:false
+      title: 'Maps',  icon:'location_on', class: '',menu_hide:true
     },        
     component: MapsComponent , 
     canActivate: [AuthGuard] 
@@ -68,7 +68,7 @@ const routes_menu = [
   { 
     path: 'notifications',  
     data:{
-      title: 'Notifications',  icon:'notifications', class: '',menu_hide:false
+      title: 'Notifications',  icon:'notifications', class: '',menu_hide:true
     },   
     component: NotificationsComponent, 
     canActivate: [AuthGuard]  
