@@ -87,9 +87,8 @@ const routes_menu = [
     data:{
       title: 'OrganizationAdd',  icon:'contacts', class: '',menu_hide:false
     },       
-    component: OrganizationAddComponent
-    /*, 
-    canActivate: [AuthGuard]  */
+    component: OrganizationAddComponent,    
+    canActivate: [AuthGuard] 
   },
   { 
     path: 'login',    
@@ -104,7 +103,7 @@ const routes_menu = [
     data:{
       class: '', menu_hide:true      
     },
-    redirectTo: 'dashboard', 
+    redirectTo: 'organization-add', 
     pathMatch: 'full' 
   }
 ];
