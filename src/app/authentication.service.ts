@@ -17,6 +17,12 @@ export class AuthenticationService {
     var currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.token = currentUser && currentUser.token;
   }
+  createAuthorizationHeader():Headers {
+    let headers = new Headers();
+    headers.append('Authorization', 'Basic ' + this.token ); 
+    headers.append('Content-Type', 'application/json');    
+    return headers;
+  }
   openAlert(type: AlertType,MSG:string) {
     this._alert.create(type, MSG,this.options);
   }

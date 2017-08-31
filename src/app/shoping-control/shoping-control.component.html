@@ -1,0 +1,83 @@
+<div class="main-content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="blue">
+                        <h4 class="title">Options </h4>
+                        <div class="category ">
+                            <div class="row">
+                                <form (submit)="SelectOrdersShop(form)" #formName>
+                                    <div class="col-xs-12 col-md-3">
+                                        <div class="form-group">
+                                            <label class="title"> ค้นหา </label>
+                                            <input class="form-control" name="inp_SEARCH" [(ngModel)]="form.SEARCH" placeholder="เลขที่ , วันที่ ,ผู้สัง">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-md-2">
+                                        <div class="form-group">
+                                            <label class="title"> แสดงสูงสุด </label>
+                                            <select class="form-control" name="inp_LIMIT" [(ngModel)]="form.LIMIT">
+                                          <option *ngFor="let num of [10,20,30,40,50,100]"  value="{{num}}" >{{num}}</option>
+                                        </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6  col-md-3">
+                                        <div class="form-group">
+                                            <label class="title"> เรียงลำดับตาม </label>
+                                            <select class="form-control" name="inp_ORDER_BY" [(ngModel)]="form.ORDER_BY">
+                                          <option *ngFor="let o of listOrderBy"  value="{{o.KEY}}" >{{o.NAME}}</option>
+                                        </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-md-2">
+                                        <div class="form-group">
+                                            <label class="title"> เรียงจาก</label>
+                                            <select class="form-control" name="inp_ASC_DESC" [(ngModel)]="form.ASC_DESC">
+                                          <option *ngFor="let o of listAscDesc"  value="{{o.KEY}}" >{{o.NAME}}</option>
+                                        </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-md-2">
+                                        <div class="clearfix"></div>
+                                        <button class="btn btn-primary btn-block"> 
+                                          ตกลง
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content table-responsive">
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>เลขที่</th>
+                                    <th>วันที่</th>
+                                    <th>ผู้สั่ง</th>
+                                    <th>Option</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let d of dataRepeat">
+                                    <td><cite title="โดย {{d.user_NAME}} เมื่อ {{d.DATE_TIME | date}}">{{d.BILL_CODE}}</cite></td>
+                                    <td>{{d.DATE_TIME | date:'short'}}</td>
+                                    <td> {{d.OZ_ID}} : {{d.OZ_NAME}}</td>
+                                    <td>
+                                        <!--
+                                        <a [routerLink]="['/shoping-control', d.BILL_CODE ]">
+                                        รายละเอียด
+                                      </a>
+                                    -->
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

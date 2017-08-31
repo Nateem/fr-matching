@@ -29,6 +29,9 @@ import { AuthenticationService } from './authentication.service';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 
+import { ShopingControlComponent } from './shoping-control/shoping-control.component';
+import { ShopingControlService } from './shoping-control/shoping-control.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +46,7 @@ import { HomeComponent } from './home/home.component';
     OrganizationAddComponent,
     LoginComponent,
     HomeComponent,
+    ShopingControlComponent,
 
   ],
   imports: [
@@ -58,7 +62,12 @@ import { HomeComponent } from './home/home.component';
       apiKey: 'AIzaSyAzG6LZwfU5Fu-5e4Bt8xVJBuUGYkdTUnM'
     })
   ],
-  providers: [JsonActionService,AuthenticationService,AuthGuard],
+  providers: [
+    JsonActionService,
+    AuthenticationService,
+    AuthGuard,
+    ShopingControlService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
