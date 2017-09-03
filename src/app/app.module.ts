@@ -22,7 +22,9 @@ import { IconsComponent } from './icons/icons.component';
 import { MapsComponent } from './maps/maps.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { UpgradeComponent } from './upgrade/upgrade.component';
+
 import { OrganizationAddComponent } from './organization-add/organization-add.component';
+import { OrganizationAddService } from './organization-add/organization-add.service';
 
 import { JsonActionService } from './json-action.service';
 import { AuthenticationService } from './authentication.service';
@@ -66,7 +68,8 @@ import { ShopingControlService } from './shoping-control/shoping-control.service
     JsonActionService,
     AuthenticationService,
     AuthGuard,
-    ShopingControlService
+    ShopingControlService,
+    OrganizationAddService
   ],
   bootstrap: [AppComponent]
 })

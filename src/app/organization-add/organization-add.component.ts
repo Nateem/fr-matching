@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AgmMap,AgmMarker } from '@agm/core';
 import {AlertsService ,AlertType,AlertSettings} from "@jaspero/ng2-alerts";
+import { OrganizationAddService } from './organization-add.service';
 import { JsonActionService } from '../json-action.service';
-import { Http } from '@angular/http';
-import "rxjs/add/operator/map";
+
 
 @Component({
   selector: 'app-organization-add',
@@ -34,24 +34,25 @@ export class OrganizationAddComponent implements OnInit {
 
  
       
-  constructor(private _jsonAT:JsonActionService,private _http:Http,public _alert:AlertsService) { }
+  constructor(private _jsonAT:JsonActionService,public _alert:AlertsService,private _oz:OrganizationAddService) { }
   openAlert(type: AlertType,MSG:string) {
     this._alert.create(type, MSG,this.options);
   }
   OrganizationAdd(FORM_DATA:any){
-    this._http.post('http://localhost/farmruk/matching/api/organization_add.model.php',{FORM_DATA:FORM_DATA}).map(res=>res.json()).subscribe((data)=>{
-      this.result = data;
-      if(data.ERROR == false){
-        this.form = {};
-        this.form = {
-          lat: 13.755716,
-          lng: 100.501589,
-          province_ID: "",
-          amphur_ID: "",
-          district_ID: "",
+    this._oz.ozAdd(FORM_DATA).subscribe(
+      (data)=>{
+        this.result = data;
+        if(data.ERROR == false){
+          this.form = {};
+          this.form = {
+            lat: 13.755716,
+            lng: 100.501589,
+            province_ID: "",
+            amphur_ID: "",
+            district_ID: "",
+          }
         }
-      }
-      this.openAlert(data.TYPE,data.MSG);
+        this.openAlert(data.TYPE,data.MSG);
       //console.log(data);
     });    
   }
