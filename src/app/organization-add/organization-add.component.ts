@@ -39,7 +39,7 @@ export class OrganizationAddComponent implements OnInit {
     this._alert.create(type, MSG,this.options);
   }
   OrganizationAdd(FORM_DATA:any){
-    this._oz.ozAdd(FORM_DATA).subscribe(
+    this._oz.organizationAdd(FORM_DATA).subscribe(
       (data)=>{
         this.result = data;
         if(data.ERROR == false){

@@ -140,7 +140,11 @@ const routes_menu = [
     },
     redirectTo: 'home', 
     pathMatch: 'full' 
-  }
+  },
+  { path: '**',
+   data:{
+    menu_hide:true
+  }, component: HomeComponent }
 ];
 const routes: Routes = routes_menu;
 

@@ -33,7 +33,7 @@ export class ShopingControlComponent implements OnInit {
       NAME:"มากไปหาน้อย"
     }
   ]
-  form:object = {
+  form:any = {
     LIMIT:50,
     SEARCH:"",
     ORDER_BY:"BILL_CODE",

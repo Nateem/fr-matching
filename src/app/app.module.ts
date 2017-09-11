@@ -4,10 +4,13 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+
 import { AgmCoreModule } from '@agm/core';
 
 import { AppRoutingModule } from './app.routing';
-import { AuthGuard } from './auth.guard';
+
+import { Providers } from './app.providers';
+
 import { ComponentsModule } from './components/components.module';
 
 import {JasperoAlertsModule } from "@jaspero/ng2-alerts";
@@ -24,15 +27,12 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { UpgradeComponent } from './upgrade/upgrade.component';
 
 import { OrganizationAddComponent } from './organization-add/organization-add.component';
-import { OrganizationAddService } from './organization-add/organization-add.service';
 
-import { JsonActionService } from './json-action.service';
-import { AuthenticationService } from './authentication.service';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 
 import { ShopingControlComponent } from './shoping-control/shoping-control.component';
-import { ShopingControlService } from './shoping-control/shoping-control.service';
+
 
 @NgModule({
   declarations: [
@@ -64,13 +64,7 @@ import { ShopingControlService } from './shoping-control/shoping-control.service
       apiKey: 'AIzaSyAzG6LZwfU5Fu-5e4Bt8xVJBuUGYkdTUnM'
     })
   ],
-  providers: [
-    JsonActionService,
-    AuthenticationService,
-    AuthGuard,
-    ShopingControlService,
-    OrganizationAddService
-  ],
+  providers: Providers,
   bootstrap: [AppComponent]
 })
 export class AppModule { }
