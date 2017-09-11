@@ -61,7 +61,9 @@ export class NavbarComponent implements OnInit {
           if(this.listTitles[item].path === titlee){
               return this.listTitles[item].data.title;
           }
+        
+          
       }
-      return 'Dashboard';
+      return titlee;
     }
 }

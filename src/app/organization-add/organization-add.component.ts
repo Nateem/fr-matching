@@ -53,7 +53,7 @@ export class OrganizationAddComponent implements OnInit {
           }
         }
         this.openAlert(data.TYPE,data.MSG);
-      //console.log(data);
+      console.log(data);
     });    
   }
   getProvince(){

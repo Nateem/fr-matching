@@ -1,0 +1,50 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="blue">
+                        <h4 class="title">ผู้สั่ง : {{dataCaption.OZ_NAME}} <small>โดย , {{dataCaption.user_NAME}}</small></h4>
+                        <div class="category ">
+                            <p>เลขที่ : {{param_BILL_CODE}}</p>
+                            <p>เมื่อ : {{dataCaption.DATE_TIME | date:'short'}}</p>
+                        </div>
+                    </div>
+                    <div class="card-content table-responsive">
+
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ลำดับ</th>
+                                    <th>สินค้า</th>
+                                    <th>ผู้ผลิต</th>
+                                    <th>สถานะจากผู้ผลิต</th>
+                                    <th>สถานะจากผู้ซื้อ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let d of dataRepeat;let i = index;">
+                                    <td>{{i+1}}</td>
+                                    <td>{{d.product_NAME}}</td>
+                                    <td>{{d.OZ_ID + ' : ' +d.OZ_NAME}}</td>
+                                    <td>
+                                        <div *ngFor="let s of statusGet">
+                                            <span *ngIf="d.STATUS_FRONT_ID == s.ID" class="label label-{{s.CLASS}}">{{s.NAME}}</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div *ngFor="let s of statusGet">
+                                            <span *ngIf="d.STATUS_BACK_ID == s.ID" class="label label-{{s.CLASS}}">{{s.NAME}}</span>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

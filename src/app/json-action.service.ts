@@ -12,8 +12,8 @@ export class JsonActionService {
     this.token = currentUser.token;   
   }
   
-  SelectShopingControl(params:object){
-    return this._http.post(Params.host_backend + '/shoping-control.model.php',JSON.stringify(params),{
+  SelectStatus(){
+    return this._http.post(Params.host_backend + '/statusBack.model.php',JSON.stringify({}),{
       headers:this._auth.createAuthorizationHeader()
     }).map(res=>res.json());
   }

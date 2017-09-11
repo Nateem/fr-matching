@@ -32,6 +32,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 
 import { ShopingControlComponent } from './shoping-control/shoping-control.component';
+import { ShopingControlDetailComponent } from './shoping-control-detail/shoping-control-detail.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { ShopingControlComponent } from './shoping-control/shoping-control.compo
     LoginComponent,
     HomeComponent,
     ShopingControlComponent,
+    ShopingControlDetailComponent,
 
   ],
   imports: [

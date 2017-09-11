@@ -16,6 +16,7 @@ import { UpgradeComponent } from './upgrade/upgrade.component';
 
 import { OrganizationAddComponent } from './organization-add/organization-add.component';
 import { ShopingControlComponent } from './shoping-control/shoping-control.component';
+import { ShopingControlDetailComponent } from './shoping-control-detail/shoping-control-detail.component';
 import { AuthGuard } from './auth.guard';
 const routes_menu = [
   { 
@@ -103,24 +104,18 @@ const routes_menu = [
   }
   ,
   { 
-    path: 'shoping-control',    
+    path: 'shoping-control-detail/:BILL_CODE',    
     data:{
-      title: 'จัดการสินค้า',  icon:'shopping_cart', class: '',menu_hide:true
+      title: 'รายละเอียดสินค้า',  icon:'shopping_cart', class: '',menu_hide:true
     },       
-    component: ShopingControlComponent,    
+    component: ShopingControlDetailComponent,    
     canActivate: [AuthGuard] ,
-    children: [
-      {
-        path: ':BILL_CODE',
-        component: ShopingControlComponent
-      }
-    ]
   }
   ,
   { 
     path: 'organization-add',    
     data:{
-      title: 'OrganizationAdd',  icon:'contacts', class: '',menu_hide:false
+      title: 'เพิ่มร้านค้า',  icon:'contacts', class: '',menu_hide:false
     },       
     component: OrganizationAddComponent,    
     canActivate: [AuthGuard] 
