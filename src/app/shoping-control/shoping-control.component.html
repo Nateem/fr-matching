@@ -61,7 +61,11 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let d of dataRepeat">
-                                    <td><cite title="โดย {{d.user_NAME}} เมื่อ {{d.DATE_TIME | date}}">{{d.BILL_CODE}}</cite></td>
+                                    <td>
+                                        <popover-content #POP_BILL_CODE title="รายละเอียด" placement="top" [animation]="true" [closeOnClickOutside]="true">
+                                            โดย {{d.user_NAME}} เมื่อ {{d.DATE_TIME | date}}
+                                        </popover-content>
+                                        <a [popover]="POP_BILL_CODE">{{d.BILL_CODE}}</a></td>
                                     <td>{{d.DATE_TIME | date:'short'}}</td>
                                     <td> {{d.OZ_ID}} : {{d.OZ_NAME}}</td>
                                     <td>

@@ -18,8 +18,8 @@
                                     <th>ลำดับ</th>
                                     <th>สินค้า</th>
                                     <th>ผู้ผลิต</th>
-                                    <th>สถานะจากผู้ผลิต</th>
-                                    <th>สถานะจากผู้ซื้อ</th>
+                                    <th>สถานะสินค้า</th>
+                                    <th>Control</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -29,14 +29,13 @@
                                     <td>{{d.OZ_ID + ' : ' +d.OZ_NAME}}</td>
                                     <td>
                                         <div *ngFor="let s of statusGet">
-                                            <span *ngIf="d.STATUS_FRONT_ID == s.ID" class="label label-{{s.CLASS}}">{{s.NAME}}</span>
+                                            <span *ngIf="d.STATUS_SEND_ID == s.ID" class="label label-{{s.CLASS}}">{{s.NAME}}</span>
                                         </div>
                                     </td>
                                     <td>
-                                        <div *ngFor="let s of statusGet">
-                                            <span *ngIf="d.STATUS_BACK_ID == s.ID" class="label label-{{s.CLASS}}">{{s.NAME}}</span>
-                                        </div>
+
                                     </td>
+
 
                                 </tr>
                             </tbody>

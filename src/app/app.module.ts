@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
+import {PopoverModule} from "ngx-popover";
+
 import { AgmCoreModule } from '@agm/core';
 
 import { AppRoutingModule } from './app.routing';
@@ -62,6 +64,7 @@ import { ShopingControlDetailComponent } from './shoping-control-detail/shoping-
     AppRoutingModule,
     JasperoAlertsModule,
     BrowserAnimationsModule,
+    PopoverModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAzG6LZwfU5Fu-5e4Bt8xVJBuUGYkdTUnM'
     })
