@@ -35,6 +35,7 @@ import { HomeComponent } from './home/home.component';
 
 import { ShopingControlComponent } from './shoping-control/shoping-control.component';
 import { ShopingControlDetailComponent } from './shoping-control-detail/shoping-control-detail.component';
+import { CloudServiceComponent } from './cloud-service/cloud-service.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { ShopingControlDetailComponent } from './shoping-control-detail/shoping-
     HomeComponent,
     ShopingControlComponent,
     ShopingControlDetailComponent,
+    CloudServiceComponent,
 
   ],
   imports: [

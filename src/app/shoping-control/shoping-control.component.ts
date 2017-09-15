@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShopingControlService } from './shoping-control.service';
+import { Router} from '@angular/router';
 @Component({
   selector: 'app-shoping-control',
   templateUrl: './shoping-control.component.html',
@@ -38,7 +39,7 @@ export class ShopingControlComponent implements OnInit {
     ORDER_BY:"BILL_CODE",
     ASC_DESC:"DESC"
   }
-  constructor(private _shop:ShopingControlService) { }
+  constructor(private _shop:ShopingControlService,private router:Router) { }
 
   SelectOrdersShop(params?:any){
     this._shop.SelectShopingControl({
@@ -46,11 +47,14 @@ export class ShopingControlComponent implements OnInit {
       PARAMS:params
     }).subscribe(
       (data)=>{
+        if(data.CLEAR==true){
+          this.router.navigate(['/login']);
+        }
     
         if(data.ERROR==false){
           this.dataRepeat = data.DATA;
-        }  
-        //console.log(data);
+        } 
+       // console.log(data);
         
       },
       (err)=>console.log(err),

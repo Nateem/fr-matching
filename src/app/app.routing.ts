@@ -17,6 +17,8 @@ import { UpgradeComponent } from './upgrade/upgrade.component';
 import { OrganizationAddComponent } from './organization-add/organization-add.component';
 import { ShopingControlComponent } from './shoping-control/shoping-control.component';
 import { ShopingControlDetailComponent } from './shoping-control-detail/shoping-control-detail.component';
+import { CloudServiceComponent } from './cloud-service/cloud-service.component';
+
 import { AuthGuard } from './auth.guard';
 const routes_menu = [
   { 
@@ -93,6 +95,15 @@ const routes_menu = [
     component: UpgradeComponent , 
     canActivate: [AuthGuard] 
   }*/
+  ,
+  { 
+    path: 'cloud-service',    
+    data:{
+      title: 'จัดการค่าเช่า',  icon:'cloud', class: '',menu_hide:false
+    },       
+    component: CloudServiceComponent,    
+    canActivate: [AuthGuard] 
+  }
   ,
   { 
     path: 'shoping-control',    
