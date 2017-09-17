@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { AuthModule } from './auth/auth.module';
 
 import {PopoverModule} from "ngx-popover";
 
@@ -58,6 +59,7 @@ import { CloudServiceComponent } from './cloud-service/cloud-service.component';
 
   ],
   imports: [
+    AuthModule,
     BrowserModule,
     FormsModule,
     HttpModule,

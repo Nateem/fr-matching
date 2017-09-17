@@ -7,6 +7,7 @@ const params:paramsInfo={
     app_shortname:"Matching",
     app_logo:"/assets/img/farmruks_logo2.gif",
     app_desciption:"",
+    host_main:"http://farmruks.com",
     host_backend:"http://localhost/farmruk/api/matching"       
 }
 

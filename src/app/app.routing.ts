@@ -40,14 +40,6 @@ const routes_menu = [
     
   },
   { 
-    path: 'user-profile',  
-    data:{
-      title: 'User Profile', icon:'person', class: '',menu_hide:true
-    },   
-    component: UserProfileComponent, 
-    canActivate: [AuthGuard]  
-  },
-  { 
     path: 'table-list',    
     data:{
       title: 'Table List',  icon:'content_paste', class: '',menu_hide:true
@@ -130,6 +122,14 @@ const routes_menu = [
     },       
     component: OrganizationAddComponent,    
     canActivate: [AuthGuard] 
+  },
+  { 
+    path: 'user-profile',  
+    data:{
+      title: 'โปรไฟล์', icon:'person', class: '',menu_hide:false
+    },   
+    component: UserProfileComponent, 
+    canActivate: [AuthGuard]  
   },
   { 
     path: 'login',    
