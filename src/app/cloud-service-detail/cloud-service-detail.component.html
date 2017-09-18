@@ -1,0 +1,87 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="blue">
+                        <h4 class="title">ร้านค้า {{dataCaption.OZ_ID}} : {{dataCaption.OZ_NAME}} </h4>
+                        <div class="category ">
+                            <p>เลขที่ : {{param_BILL_CODE}}</p>
+                            <p>ยอดขาย : {{dataCaption.TOP_SELLING_CONV}}</p>
+                            <p>ค่าเช่า : {{dataCaption.PRICE_CONV}}</p>
+                            <p>สถานะ : <span class="label label-{{dataCaption.status_CLASS}}">{{dataCaption.status_NAME}}</span> </p>
+                        </div>
+                    </div>
+                    <div class="card-content table-responsive">
+
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ประเภท</th>
+                                    <th>ธนาคาร</th>
+                                    <th>วันที่</th>
+                                    <th>เวลา</th>
+                                    <th>ยอดเงิน</th>
+                                    <th>ไฟล์แนบ</th>
+                                    <th>ข้อความ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let d of dataRepeat;let i = index;">
+                                    <td>{{d.TYPE_PAY}}</td>
+                                    <td>
+                                        <img [src]="d.BANK_LOGO" alt="logo bank" class="img-thumbnail" style="max-width:30px;"> {{d.BANK_CODE}} : <small>{{d.BANK_ACCOUNT}}</small>
+                                    </td>
+                                    <td>{{d.DATE_PAY | date:'fullDate'}}</td>
+                                    <td>
+                                        {{d.TIME_PAY}}
+                                    </td>
+                                    <td>
+                                        {{d.PRICE_CONV}}
+                                    </td>
+                                    <td>
+                                        <a href="{{pathHostFile+d.FILE_PAY}}" target="_blank">
+                                            <i class="fa fa-link" aria-hidden="true"></i>File
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <p class="well">
+                                            {{d.TEXT_PAY}}
+                                        </p>
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <div class="card">
+                        <div class="card-header" data-background-color="purple">
+                            <div class="category ">
+                                <label for="txt_error">ข้อความส่งถึงร้านค้า</label>
+                                <textarea name="txt_error" id="txt_error" cols="30" rows="3" class="form-control" [(ngModel)]="ADMIN_MSG"></textarea>
+                                <div class="row">
+
+                                    <div class="col-sm-6">
+
+                                        <button type="button" class="btn btn-warning btn-block">
+                                            <i class="fa fa-reply" aria-hidden="true"></i> เกิดข้อผิดพลาด
+                                        </button>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <button type="button" class="btn btn-success btn-block">
+                                            <i class="fa fa-check-square-o" aria-hidden="true"></i> ตรวจสอบยืนยันถูกต้อง
+                                        </button>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

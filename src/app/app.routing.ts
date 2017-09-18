@@ -18,6 +18,7 @@ import { OrganizationAddComponent } from './organization-add/organization-add.co
 import { ShopingControlComponent } from './shoping-control/shoping-control.component';
 import { ShopingControlDetailComponent } from './shoping-control-detail/shoping-control-detail.component';
 import { CloudServiceComponent } from './cloud-service/cloud-service.component';
+import { CloudServiceDetailComponent } from './cloud-service-detail/cloud-service-detail.component';
 
 import { AuthGuard } from './auth.guard';
 const routes_menu = [
@@ -94,6 +95,15 @@ const routes_menu = [
       title: 'จัดการค่าเช่า',  icon:'cloud', class: '',menu_hide:false
     },       
     component: CloudServiceComponent,    
+    canActivate: [AuthGuard] 
+  }
+  ,
+  { 
+    path: 'cloud-service-detail/:BILL_CODE',    
+    data:{
+      title: 'รายละเอียดจัดการค่าเช่า',  icon:'cloud', class: '',menu_hide:true
+    },       
+    component: CloudServiceDetailComponent,    
     canActivate: [AuthGuard] 
   }
   ,
